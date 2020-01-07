@@ -1,16 +1,13 @@
-package com.androidtutz.anushka.tmdbclient.model;
+package com.androidtutz.bulana.devices.model;
 
-/**
- * Created by K. A. ANUSHKA MADUSANKA on 7/9/2018.
- */
 import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class MovieDBResponse implements Parcelable
+public class DeviceDBResponse implements Parcelable
 {
 
     @SerializedName("page")
@@ -24,31 +21,31 @@ public class MovieDBResponse implements Parcelable
     private Integer totalPages;
     @SerializedName("results")
     @Expose
-    private List<Movie> Movies = null;
-    public final static Parcelable.Creator<MovieDBResponse> CREATOR = new Creator<MovieDBResponse>() {
+    private List<Device> devices = null;
+    public final static Parcelable.Creator<DeviceDBResponse> CREATOR = new Creator<DeviceDBResponse>() {
 
 
         @SuppressWarnings({
                 "unchecked"
         })
-        public MovieDBResponse createFromParcel(Parcel in) {
-            return new MovieDBResponse(in);
+        public DeviceDBResponse createFromParcel(Parcel in) {
+            return new DeviceDBResponse(in);
         }
 
-        public MovieDBResponse[] newArray(int size) {
-            return (new MovieDBResponse[size]);
+        public DeviceDBResponse[] newArray(int size) {
+            return (new DeviceDBResponse[size]);
         }
 
     };
 
-    protected MovieDBResponse(Parcel in) {
+    protected DeviceDBResponse(Parcel in) {
         this.page = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.totalMovies = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.totalPages = ((Integer) in.readValue((Integer.class.getClassLoader())));
-        in.readList(this.Movies, (com.androidtutz.anushka.tmdbclient.model.Movie.class.getClassLoader()));
+        in.readList(this.devices, (Device.class.getClassLoader()));
     }
 
-    public MovieDBResponse() {
+    public DeviceDBResponse() {
     }
 
     public Integer getPage() {
@@ -75,19 +72,19 @@ public class MovieDBResponse implements Parcelable
         this.totalPages = totalPages;
     }
 
-    public List<Movie> getMovies() {
-        return Movies;
+    public List<Device> getDevices() {
+        return devices;
     }
 
-    public void setMovies(List<Movie> Movies) {
-        this.Movies = Movies;
+    public void setDevices(List<Device> devices) {
+        this.devices = devices;
     }
 
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(page);
         dest.writeValue(totalMovies);
         dest.writeValue(totalPages);
-        dest.writeList(Movies);
+        dest.writeList(devices);
     }
 
     public int describeContents() {

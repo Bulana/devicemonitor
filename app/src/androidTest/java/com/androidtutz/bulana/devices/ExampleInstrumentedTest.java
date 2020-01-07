@@ -1,4 +1,4 @@
-package com.androidtutz.anushka.tmdbclient;
+package com.androidtutz.bulana.devices;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

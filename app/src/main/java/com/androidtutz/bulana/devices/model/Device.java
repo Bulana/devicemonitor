@@ -1,18 +1,15 @@
-package com.androidtutz.anushka.tmdbclient.model;
+package com.androidtutz.bulana.devices.model;
 
-/**
- * Created by K. A. ANUSHKA MADUSANKA on 7/9/2018.
- */
 
 import java.util.ArrayList;
 import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Movie implements Parcelable
+public class Device implements Parcelable
 {
 
     @SerializedName("vote_count")
@@ -57,23 +54,23 @@ public class Movie implements Parcelable
     @SerializedName("release_date")
     @Expose
     private String releaseDate;
-    public final static Parcelable.Creator<Movie> CREATOR = new Creator<Movie>() {
+    public final static Parcelable.Creator<Device> CREATOR = new Creator<Device>() {
 
 
         @SuppressWarnings({
                 "unchecked"
         })
-        public Movie createFromParcel(Parcel in) {
-            return new Movie(in);
+        public Device createFromParcel(Parcel in) {
+            return new Device(in);
         }
 
-        public Movie[] newArray(int size) {
-            return (new Movie[size]);
+        public Device[] newArray(int size) {
+            return (new Device[size]);
         }
 
     };
 
-    protected Movie(Parcel in) {
+    protected Device(Parcel in) {
         this.voteCount = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.id = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.video = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
@@ -90,7 +87,7 @@ public class Movie implements Parcelable
         this.releaseDate = ((String) in.readValue((String.class.getClassLoader())));
     }
 
-    public Movie() {
+    public Device() {
     }
 
     public Integer getVoteCount() {
