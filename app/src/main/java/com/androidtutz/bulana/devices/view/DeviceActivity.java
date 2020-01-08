@@ -44,9 +44,9 @@ public class DeviceActivity extends AppCompatActivity {
                     .into(deviceImage);
             getSupportActionBar().setTitle(device.getTitle());
             deviceTitle.setText(device.getTitle());
-            currentDeviceUser.setText(device.getOverview());
-            numberOfAvailableDevices.setText(Double.toString(device.getVoteAverage()));
-            deviceSignOutDate.setText(device.getReleaseDate());
+            currentDeviceUser.setText(device.getCurrentDeviceUser());
+            numberOfAvailableDevices.setText(Double.toString(device.getAvailableDevices()));
+            deviceSignOutDate.setText(device.getSignOutDate());
         }
     }
 }

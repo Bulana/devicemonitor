@@ -37,7 +37,7 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceView
     @Override
     public void onBindViewHolder(@NonNull DeviceViewHolder holder, int position) {
         holder.movieTitle.setText(deviceArrayList.get(position).getOriginalTitle());
-        holder.rate.setText(Double.toString(deviceArrayList.get(position).getVoteAverage()));
+        holder.rate.setText(Double.toString(deviceArrayList.get(position).getAvailableDevices()));
         String imagePath="https://3bcb7e78.ngrok.io/"+ deviceArrayList.get(position).getPosterPath();
         Glide.with(context)
                 .load(imagePath)
