@@ -11,18 +11,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.androidtutz.bulana.devices.R;
-import com.androidtutz.bulana.devices.model.Device;
+import com.androidtutz.bulana.devices.model.DeviceModel;
 import com.androidtutz.bulana.devices.view.DeviceActivity;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder>{
+public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceViewHolder> {
 
     private Context context;
-    private ArrayList<Device> deviceArrayList;
+    private ArrayList<DeviceModel> deviceArrayList;
 
-    public DeviceAdapter(Context context, ArrayList<Device> deviceArrayList) {
+    public DeviceAdapter(Context context, ArrayList<DeviceModel> deviceArrayList) {
         this.context = context;
         this.deviceArrayList = deviceArrayList;
     }
@@ -30,7 +30,7 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceView
     @NonNull
     @Override
     public DeviceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_list_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.device_list_item,parent,false);
         return new DeviceViewHolder(view);
     }
 
@@ -50,7 +50,7 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceView
         return deviceArrayList.size();
     }
 
-    public class DeviceViewHolder extends RecyclerView.ViewHolder {
+    public class DeviceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView movieTitle, rate;
         public ImageView movieImage;
 
@@ -59,19 +59,24 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.DeviceView
             movieImage = (ImageView) itemView.findViewById(R.id.ivDevice);
             rate = (TextView) itemView.findViewById(R.id.tvRating);
             movieTitle = (TextView) itemView.findViewById(R.id.tvTitle);
+            itemView.setOnClickListener(DeviceViewHolder.this);
+        }
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int position=getAdapterPosition();
-                    if(position!=RecyclerView.NO_POSITION) {
-                        Device selctedDevice = deviceArrayList.get(position);
-                        Intent intent = new Intent(context, DeviceActivity.class);
-                        intent.putExtra("device", selctedDevice);
-                        context.startActivity(intent);
-                    }
-                }
-            });
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            if(position!=RecyclerView.NO_POSITION) {
+                DeviceModel selctedDevice = deviceArrayList.get(position);
+                Intent intent = new Intent(context, DeviceActivity.class);
+                intent.putExtra("device", selctedDevice);
+                context.startActivity(intent);
+            }
         }
     }
 }
+
+
+
+//
+
+

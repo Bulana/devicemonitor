@@ -48,7 +48,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_movie" />
+    <include layout="@layout/content_device" />
 
 
 

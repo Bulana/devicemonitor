@@ -1,71 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/blue_dark"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:background="#efefef"
+    tools:context="view.MainActivity">
 
-    <LinearLayout
-        android:id="@+id/llHeaders"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:background="@color/blue_dark"
-        android:orientation="vertical">
+    <include layout="@layout/content_main" />
 
-        <ImageView
-            android:id="@+id/zapperImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:adjustViewBounds="true"
-            android:paddingLeft="12dp"
-            android:paddingTop="12dp"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_logo_zapper"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!-- Adding bottom sheet after main content -->
+    <include layout="@layout/bottom_sheet" />
 
-        <com.tomer.fadingtextview.FadingTextView
-            android:id="@+id/fading_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:paddingLeft="12dp"
-            android:textSize="12dp"
-            android:textColor="#005CB9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/zapperImage" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llDevices"
-        android:orientation="vertical"
-        android:elevation="14dp"
-        android:layout_marginTop="-490dp"
-        android:background="@drawable/curve_corners"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/tvAllDeviceHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
-            android:paddingBottom="8dp"
-            android:textColor="@color/blue_dark"
-            android:textSize="16dp" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvDevices"
-            android:background="@color/colorPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="vertical" />
-    </LinearLayout>
-
-</LinearLayout>
-
-
+</android.support.design.widget.CoordinatorLayout>

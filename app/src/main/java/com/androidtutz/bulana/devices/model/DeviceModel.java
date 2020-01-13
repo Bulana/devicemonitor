@@ -7,8 +7,9 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Device implements Parcelable
-{
+import java.util.List;
+
+public class DeviceModel implements Parcelable {
     @SerializedName("available_devices")
     @Expose
     private Double availableDevices;
@@ -30,22 +31,27 @@ public class Device implements Parcelable
     @SerializedName("sign_out_date")
     @Expose
     private String signOutDate;
-    public final static Parcelable.Creator<Device> CREATOR = new Creator<Device>() {
+
+    private List<DeviceModel> devices = null;
+    public final static Parcelable.Creator<DeviceModel> CREATOR = new Creator<DeviceModel>() {
 
         @SuppressWarnings({
                 "unchecked"
         })
-        public Device createFromParcel(Parcel in) {
-            return new Device(in);
+        public DeviceModel createFromParcel(Parcel in) {
+            return new DeviceModel(in);
         }
 
-        public Device[] newArray(int size) {
-            return (new Device[size]);
+        public DeviceModel[] newArray(int size) {
+            return (new DeviceModel[size]);
         }
 
     };
+    //add model to class name
 
-    protected Device(Parcel in) {
+    //DBResponse and DeviceModel Model
+
+    protected DeviceModel(Parcel in) {
         this.availableDevices = ((Double) in.readValue((Double.class.getClassLoader())));
         this.title = ((String) in.readValue((String.class.getClassLoader())));
         this.posterPath = ((String) in.readValue((String.class.getClassLoader())));
@@ -97,4 +103,7 @@ public class Device implements Parcelable
         return 0;
     }
 
+        public List<DeviceModel> getDevices() {
+            return devices;
+        }
 }
