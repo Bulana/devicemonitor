@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<<<<<<< HEAD
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
@@ -39,61 +38,18 @@
             android:text="Bulana"
             android:textColor="@color/colorPrimary"
             android:textSize="25dp" />
-=======
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/blue_dark"
-    android:orientation="vertical">
-
-    <View
-        android:visibility="gone"
-        android:id="@+id/bg"
-        android:background="#99808080"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <LinearLayout
-        android:id="@+id/llHeaders"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:background="@color/blue_dark"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/zapperImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:adjustViewBounds="true"
-            android:paddingLeft="12dp"
-            android:paddingTop="12dp"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_logo_zapper"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
->>>>>>> 450d9a102adb673e5180545702b1a8117f72a61d
 
         <com.tomer.fadingtextview.FadingTextView
             android:id="@+id/fading_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-<<<<<<< HEAD
             android:textColor="@color/blue_light"
             android:textSize="12dp" />
-=======
-            android:paddingLeft="12dp"
-            android:textSize="12dp"
-            android:textColor="#005CB9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/zapperImage" />
->>>>>>> 450d9a102adb673e5180545702b1a8117f72a61d
 
     </LinearLayout>
 
     <LinearLayout
-<<<<<<< HEAD
         android:id="@+id/profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -241,7 +197,7 @@
 
                 <ImageView
                     android:layout_width="45dp"
-                    android:layout_height="60dp"git
+                    android:layout_height="60dp"
                     android:src="@drawable/document" />
 
                 <TextView
@@ -258,35 +214,4 @@
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
-=======
-        android:id="@+id/llDevices"
-        android:orientation="vertical"
-        android:elevation="14dp"
-        android:layout_marginTop="-490dp"
-        android:background="@drawable/curve_corners"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tvAllDeviceHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
-            android:paddingBottom="8dp"
-            android:textColor="@color/blue_dark"
-            android:textSize="16dp" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvDevices"
-            android:background="@color/colorPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="vertical" />
-    </LinearLayout>
-
-
-</LinearLayout>
-
-
->>>>>>> 450d9a102adb673e5180545702b1a8117f72a61d

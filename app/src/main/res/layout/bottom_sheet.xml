@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:id="@+id/bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/curve_corners"
+    android:background="@drawable/curve_bottom_sheet"
     android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingBottom="16dp"
@@ -16,7 +16,7 @@
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
     <LinearLayout
-        android:id="@+id/llHeader"
+        android:id="@+id/llBottomSheetHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_weight="2"
-            android:text="Rate Rocco Mamas?"
+            android:text="Please rate me"
             android:scaleType="fitXY"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/subheading_text_color"
@@ -70,7 +70,6 @@
         android:text="Add Comment"
         android:textAllCaps="false"
         android:textColor="@color/dark_grey" />
-
 
     <Button
         android:id="@+id/rateBtn"

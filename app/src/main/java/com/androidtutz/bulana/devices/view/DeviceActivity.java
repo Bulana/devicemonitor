@@ -32,7 +32,7 @@ public class DeviceActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Window window = this.getWindow();
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.blue_sky));
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.secondary_blue));
 
         deviceImage = (ImageView) findViewById(R.id.ivDeviceLarge);
         deviceTitle = (TextView) findViewById(R.id.tvDeviceName);

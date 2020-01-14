@@ -3,15 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-<<<<<<< HEAD
-        applicationId "com.androidtutz.anushka.tmdbclient"
-        minSdkVersion 19
-        targetSdkVersion 28
-=======
         applicationId "com.androidtutz.bulana.devices"
         minSdkVersion 16
         targetSdkVersion 27
->>>>>>> 450d9a102adb673e5180545702b1a8117f72a61d
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
