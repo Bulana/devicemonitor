@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.androidtutz.bulana.devices.view.MainActivity">
+        <activity android:name=".view.SkillsActivity"></activity>
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,9 +20,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.androidtutz.bulana.devices.view.DeviceActivity"
+            android:name=".view.DeviceActivity"
             android:label="@string/title_activity_movie"
-            android:parentActivityName="com.androidtutz.bulana.devices.view.MainActivity"
+            android:parentActivityName=".view.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
