@@ -15,7 +15,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.RecyclerView;
+<<<<<<< HEAD
 import android.support.v7.widget.Toolbar;
+=======
+>>>>>>> 450d9a102adb673e5180545702b1a8117f72a61d
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,15 +31,23 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+<<<<<<< HEAD
 import android.widget.Toast;
 
 import com.androidtutz.bulana.devices.R;
 import com.androidtutz.bulana.devices.adapter.DeviceAdapter;
 import com.androidtutz.bulana.devices.model.Device;
+=======
+import com.androidtutz.bulana.devices.R;
+import com.androidtutz.bulana.devices.adapter.DeviceAdapter;
+import com.androidtutz.bulana.devices.model.DeviceModel;
+import com.androidtutz.bulana.devices.service.DevicesDataService;
+import com.androidtutz.bulana.devices.service.RetrofitInstance;
+>>>>>>> 450d9a102adb673e5180545702b1a8117f72a61d
 import com.tomer.fadingtextview.FadingTextView;
-
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+<<<<<<< HEAD
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ArrayList<Device> devices;
@@ -60,6 +71,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ActionBarDrawerToggle mDrawerToggle;
 
     @SuppressLint("ResourceType")
+=======
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    private ArrayList<DeviceModel> devices;
+    private RecyclerView recyclerView;
+    private DeviceAdapter deviceAdapter;
+    private FadingTextView fadingTextView;
+    private TextView tvAllDeviceHeader;
+    LinearLayout layoutBottomSheet;
+    private View mViewBg;
+    LinearLayout llHeading;
+    BottomSheetBehavior sheetBehavior;
+
+>>>>>>> 450d9a102adb673e5180545702b1a8117f72a61d
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         getSupportActionBar().hide();
         getSupportActionBar().setTitle(" ");
+<<<<<<< HEAD
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -132,11 +161,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onBackPressed() {
         finish();
+=======
+
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.blue_dark));
+        layoutBottomSheet = findViewById(R.id.bottom_sheet);
+
+        mViewBg = findViewById(R.id.bg);
+        tvAllDeviceHeader = findViewById(R.id.tvAllDeviceHeader);
+        fadingTextView = findViewById(R.id.fading_text_view);
+        llHeading = findViewById(R.id.llHeader);
+        llHeading.setOnClickListener(this);
+        fadeTextAnimation();
+        getDevices();
+>>>>>>> 450d9a102adb673e5180545702b1a8117f72a61d
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+<<<<<<< HEAD
         //showPersistentBottomSheet();
 
     }
@@ -181,11 +227,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void fadeTextAnimation() {
         String[] questionString = {"Looking For A Native Android Developer?", "Look No Further."};
+=======
+        sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet);
+        sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                switch (newState) {
+                    case BottomSheetBehavior.STATE_HIDDEN:
+                        break;
+                    case BottomSheetBehavior.STATE_EXPANDED: {
+                        WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+                        layoutParams.dimAmount = 0.75f;
+                    }
+                    break;
+                    case BottomSheetBehavior.STATE_COLLAPSED: {
+                        mViewBg.setVisibility(View.GONE);
+                    }
+                    break;
+                    case BottomSheetBehavior.STATE_DRAGGING:
+                        mViewBg.setVisibility(View.GONE);
+                        break;
+                    case BottomSheetBehavior.STATE_SETTLING:
+                        mViewBg.setVisibility(View.GONE);
+                        break;
+                }
+            }
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+            }
+        });
+    }
+
+    private void fadeTextAnimation() {
+        String[] questionString = {"Looking For A Zapper Device?", "Look No Further."};
+>>>>>>> 450d9a102adb673e5180545702b1a8117f72a61d
         fadingTextView.setTexts(questionString);
         fadingTextView.setTimeout(4000, TimeUnit.MILLISECONDS);
         fadingTextView.forceRefresh();
     }
 
+<<<<<<< HEAD
     private void palsateLightAnimation() {
         AlphaAnimation animation = new AlphaAnimation(0.2f, 1.0f);
         animation.setDuration(1000);
@@ -194,6 +275,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showDevices() {
+=======
+    private void showDevicesAnimation() {
+>>>>>>> 450d9a102adb673e5180545702b1a8117f72a61d
         Animation bottomUp = AnimationUtils.loadAnimation(this, R.anim.bottom_up);
         ViewGroup hiddenPanel = (ViewGroup)findViewById(R.id.profile);
         hiddenPanel.startAnimation(bottomUp);
@@ -202,6 +286,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //layoutBottomSheet.setVisibility(View.VISIBLE);
     }
 
+<<<<<<< HEAD
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -222,5 +307,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d("KKK","interest");
                 break;
         }
+=======
+    public void getDevices() {
+        DevicesDataService devicesDataService = RetrofitInstance.getService();
+        Call<DeviceModel> call = devicesDataService.getDevices();
+        call.enqueue(new Callback<DeviceModel>() {
+            @Override
+            public void onResponse(Call<DeviceModel> call, Response<DeviceModel> response) {
+                DeviceModel deviceDBResponse = response.body();
+
+                if (deviceDBResponse != null && deviceDBResponse.getDevices() != null) {
+                    devices = (ArrayList<DeviceModel>) deviceDBResponse.getDevices();
+                    showOnRecyclerView();
+                    showDevicesAnimation();
+                }
+            }
+            @Override
+            public void onFailure(Call<DeviceModel> call, Throwable t) {
+            }
+        });
+    }
+
+    private void showOnRecyclerView() {
+        recyclerView = (RecyclerView) findViewById(R.id.rvDevices);
+        deviceAdapter = new DeviceAdapter(this, devices);
+
+        if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        } else {
+            recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        }
+
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(deviceAdapter);
+        deviceAdapter.notifyDataSetChanged();
+        tvAllDeviceHeader.setText("All Devices"); //move to strings
+    }
+
+    @Override
+    public void onClick(View view) {
+       switch (view.getId()) {
+           case R.id.llHeader:
+               if (sheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
+                   sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+               }
+               if (sheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
+                   sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+               }
+               break;
+       }
+>>>>>>> 450d9a102adb673e5180545702b1a8117f72a61d
     }
 }

@@ -7,8 +7,13 @@
         android:right="24dp"
         android:top="24dp" />
     <corners
+<<<<<<< HEAD
         android:topLeftRadius="60dp"
         android:topRightRadius="1000dp"
+=======
+        android:topLeftRadius="16dp"
+        android:topRightRadius="16dp"
+>>>>>>> 450d9a102adb673e5180545702b1a8117f72a61d
         android:bottomLeftRadius="0dp"
         android:bottomRightRadius="0dp"/>
 </shape>

@@ -13,11 +13,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.androidtutz.bulana.devices.R;
-import com.androidtutz.bulana.devices.model.Device;
+import com.androidtutz.bulana.devices.model.DeviceModel;
 import com.bumptech.glide.Glide;
 
 public class DeviceActivity extends AppCompatActivity {
-    private Device device;
+    private DeviceModel device;
     private ImageView deviceImage;
     private String image;
     private TextView deviceTitle, currentDeviceUser, numberOfAvailableDevices, deviceSignOutDate;

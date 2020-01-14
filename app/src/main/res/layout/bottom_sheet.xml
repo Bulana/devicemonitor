@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/curve_corners"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingBottom="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="0dp"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="56dp"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+    <LinearLayout
+        android:id="@+id/llHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:weightSum="2">
+
+        <ImageView
+            android:id="@+id/upchevront"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="fitXY"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/ic_arrow_drop_up_black_24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="2"
+            android:text="Rate Rocco Mamas?"
+            android:scaleType="fitXY"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/subheading_text_color"
+            android:textSize="16sp"
+            android:lineSpacingMultiplier="1.2"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <RatingBar
+        android:id="@+id/rating_container_rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:max="5"
+        android:numStars="5"
+        android:rating="0.0"
+        android:stepSize=".0" />
+
+    <TextView
+        android:id="@+id/commentBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="Add Comment"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_grey" />
+
+
+    <Button
+        android:id="@+id/rateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/green_background_round_corners"
+        android:stateListAnimator="@null"
+        android:text="@string/RateReview_Rate"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/maybeLaterBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/background_white_grey_round_corners"
+        android:stateListAnimator="@null"
+        android:text="@string/General_MaybeLater"
+        android:textAllCaps="false"
+        android:textColor="@color/primary_black" />
+
+</LinearLayout>
