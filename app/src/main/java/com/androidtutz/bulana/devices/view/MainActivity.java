@@ -1,8 +1,11 @@
 package com.androidtutz.bulana.devices.view;
 
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +19,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -34,12 +38,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ArrayList<Device> devices;
     private RecyclerView recyclerView;
     private DeviceAdapter deviceAdapter;
     private FadingTextView fadingTextView;
     private TextView tvAllDeviceHeader;
+    private BottomSheetBehavior sheetBehavior;
+    private LinearLayout layoutBottomSheet;
+    private LinearLayout bottomSheetHeader;
+    private ImageView imChevron;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -59,13 +67,54 @@ public class MainActivity extends AppCompatActivity {
 
         tvAllDeviceHeader = findViewById(R.id.tvAllDeviceHeader);
         fadingTextView = findViewById(R.id.fading_text_view);
-        fadeText();
+        layoutBottomSheet = findViewById(R.id.bottom_sheet);
+        bottomSheetHeader = findViewById(R.id.llBottomSheetHeader);
+        imChevron = findViewById(R.id.checkron);
+
+        layoutBottomSheet.setOnClickListener(this);
+        bottomSheetHeader.setOnClickListener(this);
+        fadeTextAnimation();
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showRateAndReviewBottomSheet();
+            }
+        }, 2000);
     }
 
-    private void fadeText() {
+    private void showRateAndReviewBottomSheet() {
+        layoutBottomSheet.setVisibility(View.VISIBLE);
+        sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet);
+        sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(View bottomSheet, int newState) {
+                switch (newState) {
+                    case BottomSheetBehavior.STATE_HIDDEN:
+                        break;
+                    case BottomSheetBehavior.STATE_EXPANDED:
+                        break;
+                    case BottomSheetBehavior.STATE_COLLAPSED:
+                        break;
+                    case BottomSheetBehavior.STATE_DRAGGING:
+                        break;
+                    case BottomSheetBehavior.STATE_SETTLING:
+                        break;
+                }
+            }
+
+            @Override
+            public void onSlide(View bottomSheet, float slideOffset) {
+
+            }
+        });
+    }
+
+    private void fadeTextAnimation() {
         String[] questionString = {"Looking For A Zapper Device?", "Look No Further."};
         fadingTextView.setTexts(questionString);
-        fadingTextView.setTimeout(2000, TimeUnit.MILLISECONDS);
+        fadingTextView.setTimeout(4000, TimeUnit.MILLISECONDS);
         fadingTextView.forceRefresh();
     }
 
@@ -110,5 +159,21 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(deviceAdapter);
         deviceAdapter.notifyDataSetChanged();
         tvAllDeviceHeader.setText("All Devices");
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.llBottomSheetHeader:
+                if (sheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
+                    sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                    imChevron.setImageDrawable(getResources().getDrawable(R.drawable.ic_chevron_down_grey));
+                }
+                if (sheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
+                    sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                    imChevron.setImageDrawable(getResources().getDrawable(R.drawable.ic_chevron_up_grey));
+                }
+                break;
+        }
     }
 }

@@ -3,8 +3,45 @@
     <color name="colorPrimary">#fbf9f9</color>
     <color name="colorPrimaryDark">#000105</color>
     <color name="colorPrimayGreen">#8FC74B</color>
-    <color name="colorAccent">#a53205</color>
+    <color name="colorAccent">#C7033F</color>
     <color name="background">#fbf9f9</color>
+    <color name="transparent">#00000000</color>
+    <color name="primary_black">#000000</color>
+    <color name="primary_black_50alpha">#80000000</color>
+    <color name="primary_blue">#005CB9</color>
+    <color name="primary_blue_50_alpha">#80005CB9</color>
+    <color name="secondary_blue">#21A5FD</color>
     <color name="blue_dark">#002040</color>
-    <color name="blue_light">#005CB9</color>
+    <color name="primary_green">#8FC74B</color>
+    <color name="primary_green_50_alpha">#808FC74B</color>
+    <color name="primary_red">#e83333</color>
+    <color name="primary_yellow">#faaf40</color>
+    <color name="dark_grey">#666666</color>
+    <color name="medium_grey">#999999</color>
+    <color name="light_grey">#CCCCCC</color>
+    <color name="pale_grey">#E7E7E7</color>
+    <color name="off_white">#F7F7F7</color>
+    <color name="darker_off_white">#eeeeee</color>
+    <color name="white">#FFFFFF</color>
+    <color name="primary_white_50_alpha">#80FFFFFF</color>
+    <color name="light_white">#e6ffffff</color>
+    <color name="white_50_alpha">#80FFFFFF</color>
+    <color name="black_60">#99000000</color>
+    <color name="black_90">#E6000000</color>
+    <color name="blue_light">#0076ff</color>
+    <color name="cream">#F1EDED</color>
+    <color name="subheading_text_color">#666666</color>
+
+
+    <!-- colors for button style -->
+
+    <color name="gradient_start_color">#4c84ff</color>
+    <color name="gradient_end_color">#18a3fe</color>
+
+
+    <!-- colors for tab and screent text -->
+
+    <color name="tab_indicator_gray">#c0c0c0</color>
+    <color name="intro_title_color">#000000</color>
+    <color name="intro_description_color">#656565</color>
 </resources>

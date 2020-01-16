@@ -32,6 +32,7 @@ public class DeviceActivity extends AppCompatActivity {
         numberOfAvailableDevices = (TextView) findViewById(R.id.tvNumberOfAvailableDevices);
         deviceSignOutDate = (TextView) findViewById(R.id.tvSignOutDate);
 
+
         Intent intent = getIntent();
         if (intent.hasExtra("device")) {
             device = getIntent().getParcelableExtra("device");
