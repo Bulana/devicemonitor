@@ -94,8 +94,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case BottomSheetBehavior.STATE_HIDDEN:
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED:
+                        imChevron.setImageDrawable(getResources().getDrawable(R.drawable.ic_chevron_down_grey));
                         break;
                     case BottomSheetBehavior.STATE_COLLAPSED:
+                        imChevron.setImageDrawable(getResources().getDrawable(R.drawable.ic_chevron_up_grey));
                         break;
                     case BottomSheetBehavior.STATE_DRAGGING:
                         break;
