@@ -60,3 +60,6 @@ public class DeviceActivity extends AppCompatActivity {
         }
     }
 }
+
+
+//
