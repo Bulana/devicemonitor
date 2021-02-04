@@ -5,7 +5,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -43,9 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout experienceLayout;
     //private LinearLayout llBottomSheetHeading;
 
-    private ListView mDrawerList;
-    private DrawerLayout mDrawerLayout;
+    //private ListView mDrawerList;
     private Toolbar toolbar;
+    private ActionBar actionBar;
     private ActionBarDrawerToggle mDrawerToggle;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -56,15 +58,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         getSupportActionBar().hide();
-        getSupportActionBar().setTitle(" ");
 
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.secondary_blue));
 
-        mDrawerList = findViewById(R.id.main_navigation);
-        mDrawerLayout = findViewById(R.id.main_drawer);
+        //mDrawerList = findViewById(R.id.main_navigation);
         toolbar = findViewById(R.id.main_toolbar);
 
         fadingTextView = findViewById(R.id.fading_text_view);
@@ -117,29 +117,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //showDevices();
 
         //setSupportActionBar(toolbar);
-        final ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
-                    R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+//        final ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//            mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
+//                    R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+//
+//                public void onDrawerClosed(View view) {
+//                    supportInvalidateOptionsMenu();
+//                    //drawerOpened = false;
+//                }
+//
+//                public void onDrawerOpened(View drawerView) {
+//                    supportInvalidateOptionsMenu();
+//                    //drawerOpened = true;
+//                }
+//            };
+//            mDrawerToggle.getDrawerArrowDrawable().setColor(
+//                    getResources().getColor(R.color.colorPrimary));
+//            mDrawerToggle.setDrawerIndicatorEnabled(true);
+//            mDrawerLayout.setDrawerListener(mDrawerToggle);
+//            mDrawerToggle.syncState();
+//        }
+        NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+        };
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
-                public void onDrawerClosed(View view) {
-                    supportInvalidateOptionsMenu();
-                    //drawerOpened = false;
-                }
-
-                public void onDrawerOpened(View drawerView) {
-                    supportInvalidateOptionsMenu();
-                    //drawerOpened = true;
-                }
-            };
-            mDrawerToggle.getDrawerArrowDrawable().setColor(
-                    getResources().getColor(R.color.colorPrimary));
-            mDrawerToggle.setDrawerIndicatorEnabled(true);
-            mDrawerLayout.setDrawerListener(mDrawerToggle);
-            mDrawerToggle.syncState();
-        }
+        // open drawer at start
+        drawer.openDrawer(GravityCompat.START);
     }
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -204,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //    });
 
     private void fadeTextAnimation() {
-        String[] questionString = {"Looking For A Zapper Device?", "Look No Further."};
+        String[] questionString = {"Looking For A Native Android?", "Look No Further."};
         fadingTextView.setTexts(questionString);
         fadingTextView.setTimeout(4000, TimeUnit.MILLISECONDS);
         fadingTextView.forceRefresh();
