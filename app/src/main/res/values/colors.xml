@@ -31,6 +31,7 @@
     <color name="blue_light">#0076ff</color>
     <color name="cream">#F1EDED</color>
     <color name="subheading_text_color">#666666</color>
+    <color name="dark_white">#E5E5E5</color>
 
 
     <!-- colors for button style -->
